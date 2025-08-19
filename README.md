@@ -55,7 +55,7 @@ wandb init
 We follow the steps from [Symphonies](https://github.com/hustvl/Symphonies?tab=readme-ov-file).
 
 a. **Dataset**
-- **SemanticKITTI**: Download RGB images, calibration files, and preprocess the labels (refer to VoxFormer or MonoScene documentation).  
+- **SemanticKITTI**: Download RGB images, calibration files, and preprocess the labels (refer to [VoxFormer](https://github.com/NVlabs/VoxFormer/blob/main/docs/prepare_dataset.md) or [MonoScene](https://github.com/astra-vision/MonoScene#semantickitti) documentation).  
 - **SSCBench-KITTI360**: Refer to [SSCBench-KITTI360 Dataset Guide](https://github.com/ai4ce/SSCBench/tree/main/dataset/KITTI-360).
 
 b. **Depth Prediction**
@@ -190,6 +190,7 @@ python tools/generate_outputs.py --config-name config_kitti360.yaml trainer.devi
 Special thanks to [Symphonies](https://github.com/hustvl/Symphonies) and many thanks to the following excellent projects:
 - [Symphonies](https://github.com/hustvl/Symphonies)
 - [MonoScene](https://github.com/astra-vision/MonoScene)
+- [VoxFormer](https://github.com/NVlabs/VoxFormer)
 - [MaskDINO](https://github.com/IDEA-Research/MaskDINO)
 - [3D-CVF](https://github.com/rasd3/3D-CVF)
 - [NeurVPS](https://github.com/zhou13/neurvps)
