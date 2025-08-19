@@ -1,0 +1,28 @@
+{
+    // Use IntelliSense to learn about possible attributes.
+    // Hover to view descriptions of existing attributes.
+    // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "debug",
+            "type": "python",
+            "request": "launch",
+            "program": "${workspaceFolder}/tools/evaluate.py",
+            "env": {"CUDA_VISIBLE_DEVICES":"0","TORCH_DISTRIBUTED_DEBUG":"DETAIL", "PYTHONPATH": "${workspaceFolder}"},
+            "args": [
+                "--config-name", "config.yaml",
+                "trainer.devices=1",
+                "+ckpt_path=./ckpts/semantickitti.ckpt",
+                "+data_root=./data/SemanticKITTI",
+                "+label_root=./data/SemanticKITTI/labels",
+                "+depth_root=./data/SemanticKITTI/depth",
+                "+log_name=debug",
+                "+model_name=vpocc",
+                "+seed=53"
+            ],
+            "console": "integratedTerminal",
+            "justMyCode": true
+        },
+    ]
+}

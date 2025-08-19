@@ -1,0 +1,20 @@
+# Refer to Hydra documentation for more information about config group defaults.
+# - https://hydra.cc/docs/tutorials/basic/your_first_app/defaults/
+# - https://hydra.cc/docs/patterns/configuring_experiments/
+
+defaults:
+  - datasets: kitti_360
+  - models: vpocc_kitti_360
+  - schedules: adamw_lr2e-4_30e
+  - _self_
+
+hydra:
+  mode: MULTIRUN  # refer to https://github.com/Lightning-AI/lightning/pull/11617
+  sweep:
+    dir: outputs/${now:%Y-%m-%d}/${now:%H-%M}
+
+trainer:
+  devices: 4
+  accelerator: gpu
+  strategy: ddp
+  sync_batchnorm: True

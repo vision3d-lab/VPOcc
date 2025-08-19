@@ -1,0 +1,22 @@
+# @package _global_
+
+data:
+  datasets:
+    type: KITTI360
+    splits: [train, val, test]
+    data_root: 
+    label_root: 
+    depth_root:
+    image_shape: [1408, 376]
+    num_classes: 19
+    project_scale: 2
+    flip: True
+    voxel_size: 0.2
+    scene_size: [51.2, 51.2, 6.4]
+  loader:
+    batch_size: 1
+    num_workers: 4
+
+evaluator:
+  type: SSCMetrics
+  num_classes: 19
