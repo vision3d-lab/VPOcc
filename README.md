@@ -64,7 +64,7 @@ b. **Depth Prediction**
 - **SSCBench-KITTI360**: Follow the same procedure as SemanticKITTI, but adapt disparity values following [issue](https://github.com/ai4ce/SSCBench/issues/8#issuecomment-1674607576).
 
 c. **Vanishing Point Extraction**
-- Use pre-trained NeurVPS to extract vanishing points.  
+- Use pre-trained [NeurVPS](https://github.com/zhou13/neurvps) to extract vanishing points.  
 - Download pre-extracted vanishing points and extraction code from [Hugging Face Dataset](https://huggingface.co/datasets/joonsu0109/vpocc-vanishing-points/tree/main).
 
 d. **Data Structure (Softlink under `./data`)**
