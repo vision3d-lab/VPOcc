@@ -1,1 +1,0 @@
-from .mmdet_wrapper import MMDetWrapper

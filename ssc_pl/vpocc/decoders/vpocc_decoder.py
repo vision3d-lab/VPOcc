@@ -39,7 +39,7 @@ class VPOccDecoder(nn.Module):
             scene_shape[-1] //= downsample_z
         self.scene_shape = scene_shape
         self.num_queries = cumprod(scene_shape)
-        self.image_shape = image_shape # (h, w)
+        self.image_shape = image_shape
         self.voxel_size = voxel_size * project_scale
         self.downsample_z = downsample_z
 
@@ -79,22 +79,7 @@ class VPOccDecoder(nn.Module):
         self.voxel_fusion = VolumeFusion(embed_dims, embed_dims)
     
     def apply_homography(self, projected_pix, batch, fov_mask):
-        """
-        Apply homography to a set of 2D points using PyTorch.
-        
-        Parameters:
-        ----------
-        points: torch.Tensor
-            2D points in shape (N, 2).
-        H: torch.Tensor
-            Homography matrix of shape (3, 3).
-            
-        Returns:
-        -------
-        warped_points: torch.Tensor
-            Warped points of shape (N, 2).
-        """
-        # Ensure the inputs are on the same device (e.g., GPU)# torch.Size([1, 1, 1, 46592, 2])
+
         device = projected_pix.device
         fov_mask = fov_mask.squeeze(0)
 
@@ -104,15 +89,12 @@ class VPOccDecoder(nn.Module):
         M_R = batch["M_right"].squeeze(0)
         points = projected_pix.squeeze(0)
 
-        # Convert to homogeneous coordinates
         ones = torch.ones(points.shape[0], 1, device=device)
         homogenous_points = torch.cat([points, ones], dim=1)
         
-        # Apply homography
         warped_homogeneous_L = torch.mm(homogenous_points.clone(), M_L.t())
         warped_homogeneous_R = torch.mm(homogenous_points.clone(), M_R.t())
         
-        # Convert back to cartesian coordinates
         warped_points_L = warped_homogeneous_L[:, :2] / warped_homogeneous_L[:, 2].unsqueeze(1)
         warped_points_R  = warped_homogeneous_R[:, :2] / warped_homogeneous_R[:, 2].unsqueeze(1)
         

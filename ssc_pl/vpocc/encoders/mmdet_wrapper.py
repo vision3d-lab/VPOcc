@@ -29,7 +29,6 @@ class MMDetWrapper(nn.Module):
             self.model.load_state_dict(
                 torch.load(checkpoint_path, map_location=torch.device('cpu'))
             )  # otherwise all the processes will put the loaded weight on rank 0 and may lead to CUDA OOM
-            cprint("@@@@@ Loaded checkpoint from {} @@@@".format(checkpoint_path) , 'yellow')
         self.model.panoptic_head.predictor = None
 
         if freeze:

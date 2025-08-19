@@ -49,12 +49,12 @@ def main(cfg: DictConfig):
             start = torch.cuda.Event(enable_timing=True)
             end = torch.cuda.Event(enable_timing=True)
 
-            start.record()  # 시작 이벤트 기록
+            start.record()  
 
             outputs = model(batch_inputs)
             
-            end.record()  # 종료 이벤트 기록
-            torch.cuda.synchronize()  # GPU 작업 완료를 기다림
+            end.record()  
+            torch.cuda.synchronize()  
 
             latency = start.elapsed_time(end)
             latency_list.append(latency)

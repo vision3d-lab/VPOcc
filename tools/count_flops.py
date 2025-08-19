@@ -18,7 +18,6 @@ def main(cfg: DictConfig):
     model.eval()
     flops = FlopCountAnalysis(model, next(iter(dls[1]))[0])
     print(flop_count_table(flops))
-    # print(flops.total())
 
 
 if __name__ == '__main__':

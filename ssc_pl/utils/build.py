@@ -12,34 +12,29 @@ import torch
 
 class CustomRichProgressBar(RichProgressBar):
     def get_metrics(self, trainer, model):
-        # 기본 RichProgressBar의 메트릭을 가져옵니다.
         items = super().get_metrics(trainer, model)
         
         items.pop("v_num", None)
         items.pop("loss", None)
         
-        # train loss
         loss_total = trainer.callback_metrics.get('train/loss_total')
         if loss_total is not None:
-            loss_total = round(loss_total.item(), 3)  # 소수 셋째자리까지 반올림
+            loss_total = round(loss_total.item(), 3) 
         items['train/loss_total'] = loss_total
         
-        # val loss
         val_loss = trainer.callback_metrics.get('val/loss_total')
         if val_loss is not None:
-            val_loss = round(val_loss.item(), 3)  # 소수 셋째자리까지 반올림
+            val_loss = round(val_loss.item(), 3)  
         items['val/loss_total'] = val_loss
         
-        # val IoU
         val_iou = trainer.callback_metrics.get('val/IoU')
         if val_iou is not None:
-            val_iou = round(val_iou.item(), 3)  # 소수 셋째자리까지 반올림
+            val_iou = round(val_iou.item(), 3)  
         items['val/IoU'] = val_iou
         
-        # val mIoU
         val_miou = trainer.callback_metrics.get('val/mIoU')
         if val_miou is not None:
-            val_miou = round(val_miou.item(), 3)  # 소수 셋째자리까지 반올림
+            val_miou = round(val_miou.item(), 3)  
         items['val/mIoU'] = val_miou
         
         return items

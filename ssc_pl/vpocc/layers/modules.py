@@ -6,7 +6,6 @@ import torch.nn.functional as F
 3D Residual Block，3x3x3 conv ==> 3 smaller 3D conv, refered from DDRNet
 """
 
-
 class Bottleneck3D(nn.Module):
     def __init__(
         self,

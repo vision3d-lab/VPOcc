@@ -23,7 +23,7 @@ class VoxelProposalLayerOrigin(nn.Module):
         self.image_shape = image_shape
         
     def forward(self,vanishing_point, scene_embed, feats, scene_pos=None, vol_pts=None, ref_pix=None):
-        # vol_pts.shape = torch.Size([1, 451400, 3])
+
         keep = ((vol_pts[..., 0] >= 0) & (vol_pts[..., 0] < self.scene_shape[0]) &
                 (vol_pts[..., 1] >= 0) & (vol_pts[..., 1] < self.scene_shape[1]) &
                 (vol_pts[..., 2] >= 0) & (vol_pts[..., 2] < self.scene_shape[2]))

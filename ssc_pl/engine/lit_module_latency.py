@@ -81,7 +81,7 @@ class LitModule(L.LightningModule):
                     x, y = batch
                     _ = self(x)
                     
-            torch.cuda.synchronize()  # GPU 작업 완료를 기다림
+            torch.cuda.synchronize() 
 
             print("@@@@@ GPU-WARM-UP-DONE @@@@@")
             

@@ -9,11 +9,12 @@ This repository contains the official implementation of **VPOcc: Exploiting Vani
 ## 📋 Contents
 1. [Installation](#1-installation)
 2. [Preparing Dataset](#2-preparing-dataset)
-3. [Training](#3-training)
-4. [Evaluation](#4-evaluate)
-5. [Testing](#5-test)
-6. [Visualization](#6-visualization)
-7. [Acknowledgements](#7-acknowledgements)
+3. [Results](#4-results)
+4. [Training](#3-training)
+5. [Evaluation](#4-evaluation)
+6. [Testing](#5-testing)
+7. [Visualization](#6-visualization)
+8. [Acknowledgements](#7-acknowledgements)
 
 ## 1. Installation
 Our code is based on **CUDA 11.3** and **PyTorch 1.11.0**.
@@ -83,10 +84,15 @@ d. **Data Structure (Softlink under `./data`)**
 
 e. **Pretrained Weights**
 - [Pre-trained MaskDINO](https://huggingface.co/joonsu0109/vpocc-symphonies-maskdino) → place under `./backups`  
-- [SemanticKITTI](https://huggingface.co/joonsu0109/vpocc-semantickitti)  
-- [SSCBench-KITTI360](https://huggingface.co/joonsu0109/vpocc-kitti360)  
 
-## 3. Training
+## 3. Results
+
+| Dataset             | Validation (IoU / mIoU)                                                                                                  | Test (IoU / mIoU)                                                                                             | Model                                                                                  |
+|---------------------|--------------------------------------------------------------------------------------------------------------------------|---------------------------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------------|
+| **SemanticKITTI**   | 44.98 / 16.36 [📄 log](https://huggingface.co/joonsu0109/vpocc-semantickitti/blob/main/training_metrics.log)              | 44.58 / 16.15 [📄 log](https://huggingface.co/joonsu0109/vpocc-semantickitti/blob/main/test_log.txt)           | [model](https://huggingface.co/joonsu0109/vpocc-semantickitti)                      |
+| **SSCBench-KITTI360** | 46.40 / 20.14 [📄 log](https://huggingface.co/joonsu0109/vpocc-sscbench-kitti360/blob/main/training_metrics.log)        | 46.39 / 19.80 [📄 log](https://huggingface.co/joonsu0109/vpocc-sscbench-kitti360/blob/main/test_metrics.log)  | [model](https://huggingface.co/joonsu0109/vpocc-sscbench-kitti360)                  |
+
+## 4. Training
 
 a. **SemanticKITTI**
 ```shell
@@ -109,7 +115,7 @@ python tools/train.py --config-name config_kitti_360.yaml trainer.devices=4 \
 +model_name=vpocc \
 ```
 
-## 4. Evaluation
+## 5. Evaluation
 
 a. **SemanticKITTI**
 ```shell
@@ -135,7 +141,7 @@ python tools/evaluate.py --config-name config_kitti_360.yaml trainer.devices=1 \
 +seed=53
 ```
 
-## 5. Testing
+## 6. Testing
 
 a. **SemanticKITTI** (hidden test set)
 ```shell
@@ -161,7 +167,7 @@ python tools/test_kitti360.py --config-name config_kitti_360.yaml trainer.device
 +seed=53
 ```
 
-## 6. Visualization
+## 7. Visualization
 Outputs of the validation set are saved in `./outputs`.
 
 a. **SemanticKITTI**
@@ -186,7 +192,7 @@ python tools/generate_outputs.py --config-name config_kitti360.yaml trainer.devi
 +model_name=vpocc
 ```
 
-## 7. Acknowledgements
+## 8. Acknowledgements
 Special thanks to [Symphonies](https://github.com/hustvl/Symphonies) and many thanks to the following excellent projects:
 - [Symphonies](https://github.com/hustvl/Symphonies)
 - [MonoScene](https://github.com/astra-vision/MonoScene)
