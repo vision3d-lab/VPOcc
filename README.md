@@ -133,9 +133,9 @@ b. **KITTI-360**
 ```shell
 python tools/evaluate.py --config-name config_kitti_360.yaml trainer.devices=1 \
 +ckpt_path=./ckpts/kitti360.ckpt \
-+data_root=/root/data2/joonsu0109/KITTI-360_occ \
-+label_root=/root/data2/joonsu0109/KITTI-360_occ/monoscene_preprocess/labels \
-+depth_root=/root/data2/joonsu0109/KITTI-360_occ/depth/sequences \
++data_root=./data/KITTI-360 \
++label_root=./data/KITTI-360/monoscene_preprocess/labels \
++depth_root=./data/KITTI-360/depth/sequences \
 +log_name=eval_kitti360 \
 +model_name=vpocc \
 +seed=53
