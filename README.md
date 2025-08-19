@@ -75,7 +75,7 @@ d. **Data Structure (Softlink under `./data`)**
 │   ├── labels
 │   ├── depth
 │   └── vanishing_points
-└── KITTI-360
+└── SSCBench-KITTI360
     ├── data_2d_raw
     ├── depth
     ├── monoscene_preprocess
@@ -108,9 +108,9 @@ python tools/train.py --config-name config.yaml trainer.devices=4 \
 b. **KITTI-360**
 ```shell
 python tools/train.py --config-name config_kitti_360.yaml trainer.devices=4 \
-+data_root=./data/KITTI-360 \
-+label_root=./data/KITTI-360/monoscene_preprocess/labels \
-+depth_root=./data/KITTI-360/depth/sequences \
++data_root=./data/SSCBench-KITTI360 \
++label_root=./data/SSCBench-KITTI360/monoscene_preprocess/labels \
++depth_root=./data/SSCBench-KITTI360/depth/sequences \
 +log_name=train_kitti360 \
 +model_name=vpocc \
 ```
@@ -133,9 +133,9 @@ b. **KITTI-360**
 ```shell
 python tools/evaluate.py --config-name config_kitti_360.yaml trainer.devices=1 \
 +ckpt_path=./ckpts/kitti360.ckpt \
-+data_root=./data/KITTI-360 \
-+label_root=./data/KITTI-360/monoscene_preprocess/labels \
-+depth_root=./data/KITTI-360/depth/sequences \
++data_root=./data/SSCBench-KITTI360 \
++label_root=./data/SSCBench-KITTI360/monoscene_preprocess/labels \
++depth_root=./data/SSCBench-KITTI360/depth/sequences \
 +log_name=eval_kitti360 \
 +model_name=vpocc \
 +seed=53
@@ -159,9 +159,9 @@ b. **KITTI-360**
 ```shell
 python tools/test_kitti360.py --config-name config_kitti_360.yaml trainer.devices=1 \
 +ckpt_path=./ckpts/kitti360.ckpt \ \
-+data_root=./data/KITTI-360 \
-+label_root=./data/KITTI-360/monoscene_preprocess/labels \
-+depth_root=./data/KITTI-360/depth/sequences \
++data_root=./data/SSCBench-KITTI360 \
++label_root=./data/SSCBench-KITTI360/monoscene_preprocess/labels \
++depth_root=./data/SSCBench-KITTI360/depth/sequences \
 +log_name=test_kitti360 \
 +model_name=vpocc \
 +seed=53
@@ -185,9 +185,9 @@ b. **KITTI-360**
 ```shell
 python tools/generate_outputs.py --config-name config_kitti360.yaml trainer.devices=1 \
 +ckpt_path=./ckpts/kitti360.ckpt \
-+data_root=./data/KITTI-360 \
-+label_root=./data/KITTI-360/monoscene_preprocess/labels \
-+depth_root=./data/KITTI-360/depth/sequences \
++data_root=./data/SSCBench-KITTI360 \
++label_root=./data/SSCBench-KITTI360/monoscene_preprocess/labels \
++depth_root=./data/SSCBench-KITTI360/depth/sequences \
 +log_name=vis_kitti360 \
 +model_name=vpocc
 ```
