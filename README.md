@@ -109,7 +109,7 @@ python tools/train.py --config-name config_kitti_360.yaml trainer.devices=4 \
 +model_name=vpocc \
 ```
 
-## 4. Evaluate
+## 4. Evaluation
 
 a. **SemanticKITTI**
 ```shell
@@ -135,7 +135,7 @@ python tools/evaluate.py --config-name config_kitti_360.yaml trainer.devices=1 \
 +seed=53
 ```
 
-## 5. Test
+## 5. Testing
 
 a. **SemanticKITTI** (hidden test set)
 ```shell
