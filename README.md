@@ -3,18 +3,20 @@
 
 [![Paper](https://img.shields.io/badge/arXiv-2408.03551-b31b1b.svg)](https://arxiv.org/abs/2408.03551)
 [![Project Page](https://img.shields.io/badge/Project-Page-blue.svg)](https://vision3d-lab.github.io/vpocc/)
+[![HuggingFace](https://img.shields.io/badge/HuggingFace-Model-yellow.svg)](https://huggingface.co/joonsu0109/vpocc-semantickitti)
 
 This repository contains the official implementation of **VPOcc: Exploiting Vanishing Point for 3D Semantic Occupancy Prediction**.
 
 ## 📋 Contents
 1. [Installation](#1-installation)
 2. [Preparing Dataset](#2-preparing-dataset)
-3. [Results](#4-results)
-4. [Training](#3-training)
-5. [Evaluation](#4-evaluation)
-6. [Testing](#5-testing)
-7. [Visualization](#6-visualization)
-8. [Acknowledgements](#7-acknowledgements)
+3. [Results](#3-results)
+4. [Training](#4-training)
+5. [Evaluation](#5-evaluation)
+6. [Test](#6-test)
+7. [Visualization](#7-visualization)
+8. [Acknowledgements](#8-acknowledgements)
+9. [BibTeX](#9-bibtex)
 
 ## 1. Installation
 Our code is based on **CUDA 11.3** and **PyTorch 1.11.0**.
@@ -71,7 +73,7 @@ d. **Data Structure (Softlink under `./data`)**
 ```
 ./data
 ├── SemanticKITTI
-│   ├── dataset
+│   ├── dataset 
 │   ├── labels
 │   ├── depth
 │   └── vanishing_points
@@ -110,9 +112,10 @@ b. **KITTI-360**
 python tools/train.py --config-name config_kitti_360.yaml trainer.devices=4 \
 +data_root=./data/SSCBench-KITTI360 \
 +label_root=./data/SSCBench-KITTI360/monoscene_preprocess/labels \
-+depth_root=./data/SSCBench-KITTI360/depth/sequences \
++depth_root=./data/SSCBench-KITTI360/depth \
 +log_name=train_kitti360 \
 +model_name=vpocc \
++seed=53
 ```
 
 ## 5. Evaluation
@@ -135,13 +138,13 @@ python tools/evaluate.py --config-name config_kitti_360.yaml trainer.devices=1 \
 +ckpt_path=./ckpts/kitti360.ckpt \
 +data_root=./data/SSCBench-KITTI360 \
 +label_root=./data/SSCBench-KITTI360/monoscene_preprocess/labels \
-+depth_root=./data/SSCBench-KITTI360/depth/sequences \
++depth_root=./data/SSCBench-KITTI360/depth \
 +log_name=eval_kitti360 \
 +model_name=vpocc \
 +seed=53
 ```
 
-## 6. Testing
+## 6. Test
 
 a. **SemanticKITTI** (hidden test set)
 ```shell
@@ -161,7 +164,7 @@ python tools/test_kitti360.py --config-name config_kitti_360.yaml trainer.device
 +ckpt_path=./ckpts/kitti360.ckpt \ \
 +data_root=./data/SSCBench-KITTI360 \
 +label_root=./data/SSCBench-KITTI360/monoscene_preprocess/labels \
-+depth_root=./data/SSCBench-KITTI360/depth/sequences \
++depth_root=./data/SSCBench-KITTI360/depth \
 +log_name=test_kitti360 \
 +model_name=vpocc \
 +seed=53
@@ -187,7 +190,7 @@ python tools/generate_outputs.py --config-name config_kitti360.yaml trainer.devi
 +ckpt_path=./ckpts/kitti360.ckpt \
 +data_root=./data/SSCBench-KITTI360 \
 +label_root=./data/SSCBench-KITTI360/monoscene_preprocess/labels \
-+depth_root=./data/SSCBench-KITTI360/depth/sequences \
++depth_root=./data/SSCBench-KITTI360/depth \
 +log_name=vis_kitti360 \
 +model_name=vpocc
 ```
@@ -200,3 +203,6 @@ Special thanks to [Symphonies](https://github.com/hustvl/Symphonies) and many th
 - [MaskDINO](https://github.com/IDEA-Research/MaskDINO)
 - [3D-CVF](https://github.com/rasd3/3D-CVF)
 - [NeurVPS](https://github.com/zhou13/neurvps)
+
+## 9. BibTeX
+- Comming soon :D

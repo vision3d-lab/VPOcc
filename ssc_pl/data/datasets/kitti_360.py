@@ -144,7 +144,7 @@ class KITTI360(Dataset):
         label['target'] = target
 
 
-        depth_path = osp.join(self.depth_root, sequence, frame_id + '.npy')
+        depth_path = osp.join(self.depth_root,"sequences", sequence, frame_id + '.npy')
         depth = np.load(depth_path)[:self.img_shape[1], :self.img_shape[0]]
         if flip:
             depth = np.flip(depth, axis=1).copy()
