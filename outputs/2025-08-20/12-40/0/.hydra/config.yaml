@@ -1,0 +1,80 @@
+data:
+  datasets:
+    type: KITTI360
+    splits:
+    - train
+    - val
+    - test
+    data_root: null
+    label_root: null
+    depth_root: null
+    image_shape:
+    - 1408
+    - 376
+    num_classes: 19
+    project_scale: 2
+    flip: true
+    voxel_size: 0.2
+    scene_size:
+    - 51.2
+    - 51.2
+    - 6.4
+  loader:
+    batch_size: 1
+    num_workers: 4
+evaluator:
+  type: SSCMetrics
+  num_classes: 19
+model:
+  type: VPOcc
+  embed_dims: 128
+  view_scales:
+  - 4
+  - 8
+  - 16
+  scene_size:
+  - 256
+  - 256
+  - 32
+  volume_scale: 2
+  num_classes: 19
+  image_shape:
+  - 376
+  - 1408
+  voxel_size: 0.2
+  downsample_z: 2
+  encoder:
+    type: MMDetWrapper
+    config_path: maskdino/configs/maskdino_r50_8xb2-panoptic-export.py
+    custom_imports: maskdino
+    checkpoint_path: ./backups/maskdino_r50_50e_300q_panoptic_pq53.0.pth
+  criterions:
+  - ce_ssc
+  - sem_scal
+  - geo_scal
+optimizer:
+  paramwise_cfg:
+  - name: encoder.model
+    lr_mult: 0.1
+  type: AdamW
+  lr: 0.0002
+  eps: 0.001
+  weight_decay: 0.0001
+scheduler:
+  type: MultiStepLR
+  milestones:
+  - 25
+  gamma: 0.1
+trainer:
+  max_epochs: 30
+  devices: 4
+  accelerator: gpu
+  strategy: ddp
+  sync_batchnorm: true
+ckpt_path: /root/data2/joonsu0109/project/VPOcc_git/ckpts/sscbench-kitti360/kitti360.ckpt
+data_root: ./data/SSCBench-KITTI360
+label_root: ./data/SSCBench-KITTI360/monoscene_preprocess/labels
+depth_root: ./data/SSCBench-KITTI360/sequences
+log_name: eval_kitti360
+model_name: vpocc
+seed: 53
