@@ -86,6 +86,17 @@ d. **Data Structure (Softlink under `./data`)**
 
 e. **Pretrained Weights**
 - [Pre-trained MaskDINO](https://huggingface.co/joonsu0109/vpocc-symphonies-maskdino) → place under `./backups`  
+```
+./VPOcc
+├── backups
+├── ckpts
+├── configs
+├── data
+├── maskdino
+├── outputs
+├── ssc_pl
+└── tools
+```
 
 ## 3. Results
 
