@@ -13,6 +13,11 @@ __pycache__/
 env/
 venv/
 wandb/
+ckpts/*
+outputs/*
+data/*
+backups/*
+
 # OS files
 .DS_Store
 Thumbs.db

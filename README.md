@@ -197,7 +197,6 @@ python tools/generate_outputs.py --config-name config_kitti360.yaml trainer.devi
 
 ## 8. Acknowledgements
 Special thanks to [Symphonies](https://github.com/hustvl/Symphonies) and many thanks to the following excellent projects:
-- [Symphonies](https://github.com/hustvl/Symphonies)
 - [MonoScene](https://github.com/astra-vision/MonoScene)
 - [VoxFormer](https://github.com/NVlabs/VoxFormer)
 - [MaskDINO](https://github.com/IDEA-Research/MaskDINO)
