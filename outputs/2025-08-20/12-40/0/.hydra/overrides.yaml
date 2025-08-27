@@ -1,8 +1,0 @@
-- trainer.devices=4
-- +ckpt_path=/root/data2/joonsu0109/project/VPOcc_git/ckpts/sscbench-kitti360/kitti360.ckpt
-- +data_root=./data/SSCBench-KITTI360
-- +label_root=./data/SSCBench-KITTI360/monoscene_preprocess/labels
-- +depth_root=./data/SSCBench-KITTI360/sequences
-- +log_name=eval_kitti360
-- +model_name=vpocc
-- +seed=53
