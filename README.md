@@ -182,7 +182,7 @@ python tools/test_kitti360.py --config-name config_kitti_360.yaml trainer.device
 ```
 
 ## 7. Visualization
-Outputs of the validation set are saved in `./outputs`.
+- Outputs of the validation set are saved in `./outputs`.
 
 a. **SemanticKITTI**
 ```shell
@@ -204,6 +204,23 @@ python tools/generate_outputs.py --config-name config_kitti360.yaml trainer.devi
 +depth_root=./data/SSCBench-KITTI360/depth \
 +log_name=vis_kitti360 \
 +model_name=vpocc
+```
+
+- You can visualize the predicted data. In `auto` mode, all visualizations are saved automatically, while `manual` mode opens an interactive window.
+
+c. **SemanticKITTI**
+```shell
+python tools/visualize.py --config-name config.yaml \
++path=PTAH/TO/PKL/DIR \
++output_dir=PTAH/TO/OUTPUT/DIR \
++save_mode={auto/manual}
+```
+d. **KITTI-360**
+```shell
+python tools/visualize.py --config-name config_kitti360.yaml \
++path=PTAH/TO/PKL/DIR \
++output_dir=PPTAH/TO/OUTPUT/DIR \
++save_mode={auto/manual}
 ```
 
 ## 8. Acknowledgements
