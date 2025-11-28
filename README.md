@@ -232,4 +232,15 @@ Special thanks to [Symphonies](https://github.com/hustvl/Symphonies) and many th
 - [NeurVPS](https://github.com/zhou13/neurvps)
 
 ## 9. BibTeX
-- Comming soon :D
+```shell
+@INPROCEEDINGS{11246960,
+  author={Kim, Junsu and Lee, Junhee and Shin, Ukcheol and Oh, Jean and Joo, Kyungdon},
+  booktitle={2025 IEEE/RSJ International Conference on Intelligent Robots and Systems (IROS)}, 
+  title={VPOcc: Exploiting Vanishing Point for 3D Semantic Occupancy Prediction}, 
+  year={2025},
+  volume={},
+  number={},
+  pages={4307-4314},
+  keywords={Three-dimensional displays;Accuracy;Trajectory planning;Roads;Semantics;Robot vision systems;Feature extraction;Cameras;Sensors;Spatial resolution},
+  doi={10.1109/IROS60139.2025.11246960}}
+```
