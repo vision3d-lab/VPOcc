@@ -2,8 +2,8 @@
 # [IROS 2025] VPOcc: Exploiting Vanishing Point for 3D Semantic Occupancy Prediction
 
 [![arXiv](https://img.shields.io/badge/arXiv-2408.03551-b31b1b.svg)](https://arxiv.org/abs/2408.03551)
-[![Paper](https://img.shields.io/badge/ieee-paper-blue)](https://ieeexplore.ieee.org/document/11246960)
-[![Project Page](https://img.shields.io/badge/Project-Page-blue.svg)](https://vision3d-lab.github.io/vpocc/)
+[![Paper](https://img.shields.io/badge/Paper-ieee-blue.svg)](https://ieeexplore.ieee.org/document/11246960)
+[![Project Page](https://img.shields.io/badge/Project-Page-green.svg)](https://vision3d-lab.github.io/vpocc/)
 [![HuggingFace](https://img.shields.io/badge/HuggingFace-Model-yellow.svg)](https://huggingface.co/papers/2408.03551)
 
 This repository contains the official implementation of **VPOcc: Exploiting Vanishing Point for 3D Semantic Occupancy Prediction**.
