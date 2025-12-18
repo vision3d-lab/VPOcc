@@ -233,7 +233,7 @@ Special thanks to [Symphonies](https://github.com/hustvl/Symphonies) and many th
 - [NeurVPS](https://github.com/zhou13/neurvps)
 
 ## 9. BibTeX
-```shell
+```text
 @INPROCEEDINGS{11246960,
   author={Kim, Junsu and Lee, Junhee and Shin, Ukcheol and Oh, Jean and Joo, Kyungdon},
   booktitle={2025 IEEE/RSJ International Conference on Intelligent Robots and Systems (IROS)}, 
