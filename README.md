@@ -234,14 +234,12 @@ Special thanks to [Symphonies](https://github.com/hustvl/Symphonies) and many th
 
 ## 9. BibTeX
 ```text
-@INPROCEEDINGS{11246960,
+@inproceedings{kim2025vpocc,
+  title={VPOcc: Exploiting Vanishing Point for 3D Semantic Occupancy Prediction},
   author={Kim, Junsu and Lee, Junhee and Shin, Ukcheol and Oh, Jean and Joo, Kyungdon},
-  booktitle={2025 IEEE/RSJ International Conference on Intelligent Robots and Systems (IROS)}, 
-  title={VPOcc: Exploiting Vanishing Point for 3D Semantic Occupancy Prediction}, 
+  booktitle={2025 IEEE/RSJ International Conference on Intelligent Robots and Systems (IROS)},
+  pages={4307--4314},
   year={2025},
-  volume={},
-  number={},
-  pages={4307-4314},
-  keywords={Three-dimensional displays;Accuracy;Trajectory planning;Roads;Semantics;Robot vision systems;Feature extraction;Cameras;Sensors;Spatial resolution},
-  doi={10.1109/IROS60139.2025.11246960}}
+  organization={IEEE}
+}
 ```
